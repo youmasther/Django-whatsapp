@@ -7,3 +7,6 @@ This project is a simple Django-based web application that mimics the functional
 ## Media sharing: Users can share text messages, images, and other multimedia files within chats.
 ## Responsive design: The application is designed to be accessible and usable across devices of various screen sizes.
 This project serves as a demonstration of building a chat application using Django and integrating real-time communication features. It's a great starting point for those interested in learning Django or developing similar messaging applications.
+
+
+https://tailwindcomponents.com/component/whatsapp-web-clone
