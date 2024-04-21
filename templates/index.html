@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <title>whatsapp html</title>
+  </head>
+  <body>
+    <!-- Start Chat main  (whatsapp) -->
+    <div>
+      <div class="w-full h-32" style="background-color: #449388"></div>
+
+      <div class="container mx-auto" style="margin-top: -128px">
+        <div class="py-6 h-screen">
+          <div class="flex border border-grey rounded shadow-lg h-full">
+            <!-- Left -->
+            {% include "partials/_sideBare.html" %}
+            <!-- End Left -->
+
+            <!-- Right -->
+            {% include "partials/_chat.html" %}
+            <!-- End Right -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Chat main  (whatsapp) -->
+  </body>
+</html>

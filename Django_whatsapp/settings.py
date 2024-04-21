@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # project custom apps
     'accounts',
+    'core',
 
 ]
 
