@@ -49,3 +49,9 @@ def register(request):
             return render(request, 'register.html',{"message": "Erreur:Veuillez revoir les informations soumisent"})
     else:
         return render(request, 'register.html')
+
+
+def logout(request):
+    if request.method == 'GET':
+        auth.logout(request)
+        return redirect('login')
