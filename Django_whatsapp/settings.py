@@ -74,6 +74,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Django_whatsapp.wsgi.application'
+AUTH_USER_MODEL = 'accounts.User'
+AUTHENTICATION_BACKENDS = (
+        'django.contrib.auth.backends.AllowAllUsersModelBackend',
+        'accounts.backends.CaseInsensitiveModelBackend'
+    )
 
 
 # Database
