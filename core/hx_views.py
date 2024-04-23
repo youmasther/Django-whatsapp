@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from accounts.models import User, Messages
 from django.db.models import Q
+from django.views.decorators.csrf import csrf_exempt
+
+from accounts.models import User, Messages
 from accounts.forms import MessagesCreationForm
 
 def hx_chat(request, id):
@@ -35,5 +37,13 @@ def hx_create_message(request):
         context =  {"message": new_message}
         return render(request, 'hx_partials/hx_chat_message.html', context)
 
+@csrf_exempt
+def hx_search(request):
+    if request.method == "POST":
+        search_query = request.POST["search"]
+        users = User.objects.filter(Q(prenom__icontains=search_query)|Q(nom__icontains=search_query)).exclude(email=request.user.email)
+        context={
+            "users": users
+        }
 
-            
+        return render(request, 'hx_partials/hx_side_bar_search.html', context)

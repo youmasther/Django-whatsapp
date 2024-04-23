@@ -61,14 +61,19 @@
   <!-- Search -->
   <div class="py-2 px-2 bg-grey-lightest">
     <input
-      type="text"
-      class="w-full px-2 py-2 text-sm"
-      placeholder="Search or start new chat"
+        type="text"
+        hx-post="{% url 'hx_search' %}" 
+        hx-trigger="input changed delay:500ms, search" 
+        hx-target="#contacts"
+        hx-swap="innerHTML"
+        name="search"
+        class="w-full px-2 py-2 text-sm"
+        placeholder="Search or start new chat"
     />
   </div>
 
   <!-- Contacts -->
-  <div class="bg-grey-lighter flex-1 overflow-auto">
+  <div class="bg-grey-lighter flex-1 overflow-auto"  id="contacts">
     {% if users %} {% for user in users %}
     <div class="px-3 flex items-center bg-grey-light cursor-pointer" hx-get="{% url "hx_chat" user.id %}" hx-trigger="click" hx-target="#hx_chat" hx-swap="innerHTML">
       <div>
