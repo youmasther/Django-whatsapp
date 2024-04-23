@@ -3,13 +3,14 @@
   <div
     class="py-2 px-3 bg-grey-lighter flex flex-row justify-between items-center"
   >
-    <div>
+    <div class="flex place-items-center">
       <img
         class="w-10 h-10 rounded-full"
         src="{% if request.user %}{{request.user.image.url}}{% endif %}"
       />
+      <div class="ml-2 text-white">{{request.user.prenom}} {{request.user.nom}}</div>
     </div>
-
+    
     <div class="flex">
       <div>
         <a href="#">

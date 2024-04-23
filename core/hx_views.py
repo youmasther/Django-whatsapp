@@ -22,8 +22,8 @@ def hx_chat(request, id):
 
 def hx_create_message(request):
     if request.method == "POST":
-        id = request.POST['id']
-        content = request.POST['content']
+        id = request.POST['id'] if 'id' in request.POST  else None
+        content = request.POST['content'] if 'content' in request.POST  else None
         data = {
             "sender": request.user,
             "receiver": User.objects.get(id=int(id)),
