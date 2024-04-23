@@ -1,0 +1,18 @@
+{% comment %} <div class="bg-grey-lighter flex-1 overflow-auto"> {% endcomment %}
+    {% if users %} {% for user in users %}
+    <div class="px-3 flex items-center bg-grey-light cursor-pointer" hx-get="{% url "hx_chat" user.id %}" hx-trigger="click" hx-target="#hx_chat" hx-swap="innerHTML">
+      <div>
+        <img class="h-12 w-12 rounded-full" src="{{user.image.url}}" />
+      </div>
+      <div class="ml-4 flex-1 border-b border-grey-lighter py-4">
+        <div class="flex items-bottom justify-between">
+          <p class="text-grey-darkest">{{user.prenom}} {{user.nom}}</p>
+          <p class="text-xs text-grey-darkest">
+            {{user.last_message.timestamp}}
+          </p>
+        </div>
+        <p class="text-grey-dark mt-1 text-sm">{{user.last_message.content}}</p>
+      </div>
+    </div>
+    {% endfor %} {% else %} No contacts found... {% endif %}
+{% comment %} </div> {% endcomment %}
