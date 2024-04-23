@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import PasswordChangeForm
 from PIL import Image
 from django.forms import fields
-from .models import User
+from .models import User, Messages
 
 
 class UserCreationForm(forms.ModelForm):
@@ -101,3 +101,8 @@ class PasswordChangeFormEdit(PasswordChangeForm):
         self.fields['old_password'].widget.attrs.update({'class' : 'form-control mb-2','placeholder':'Votre ancien mot de passe'})
         self.fields['new_password1'].widget.attrs.update({'class' : 'form-control mb-2','placeholder':'Votre nouveau mot de passe'})
         self.fields['new_password2'].widget.attrs.update({'class' : 'form-control mb-2','placeholder':'confirmer votre mot de passe '})
+
+class MessagesCreationForm(forms.ModelForm):
+    class Meta:
+        model = Messages
+        fields = ('sender', 'receiver', 'content', 'media_url')
